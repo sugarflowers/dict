@@ -36,3 +36,23 @@ impl Dict {
     } 
 }
 
+/*
+ * use dict::{Dict, val};
+ */ 
+#[test]
+fn dict_test() {
+    let mut d = Dict::new();
+    d.set("a", 123);
+    d.set("b", "abc".to_string());
+
+    let value = val!(d.get("a").unwrap(), i32);
+    println!("{}", value);
+
+    let string_value = val!(d.get("b").unwrap(), String);
+    println!("{}", string_value);
+
+    for key in d.keys() {
+        println!("{}", key);
+    }
+}
+
